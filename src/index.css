@@ -1,15 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
+:root {
+  --background-main: #2596be;
+  --main-color: #20c2ee;
+  --secondary-color: #ababa3;
+  --tertiary-color: #656969;
+  --secondary-two-color: #e2e3e6;
+  --color-one: #00bf3d;
+  --color-two: #d3a84b;
+  --light--primary: #f8ce52;
+  --lighter-primary: #f8db81;
+  --brown-primary: #721f2e;
+  --blue-main: #00bf3d;
+  --light-brown: #f9e592;
+  --lightest-brown: #f9e592;
+}
+
 html {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   line-height: 1.5;
-
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-y: hidden;
   color: #ebe7ef;
-
+  height: 100%;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,16 +35,31 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  background: radial-gradient(
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* radial-gradient(
       circle at top,
       rgba(241, 210, 70, 0.98),
       rgba(250, 176, 103, 0.87)
-    ),
-    url('bg-pattern-dark.png');
-  background-repeat: repeat;
-  background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+    ), */
+
+body {
+  background: url("background.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100vw;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 header {
@@ -38,6 +71,14 @@ header img {
   object-fit: contain;
   margin: 3rem auto 1rem auto;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  height: 100vh;
 }
 
 @media (max-width: 768px) {
@@ -52,10 +93,14 @@ header img {
     width: 5rem;
     margin: 1.5rem auto 1rem auto;
   }
+
+  body {
+    background-attachment: scroll;
+  }
 }
 
 h1 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 3rem;
   margin: 0 auto 3rem auto;
   color: #3f3b00;
@@ -126,13 +171,13 @@ h1 {
 }
 
 #players.highlight-player li.active {
-  border-color: #f6e35a;
+  border-color: var(--background-main);
   animation: pulse 2s infinite ease-in-out;
 }
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
-  color: #f6e35a;
+  color: var(--background-main);
 }
 
 #players button {
@@ -148,7 +193,7 @@ h1 {
 }
 
 #players button:hover {
-  color: #f8ca31;
+  color: var(--main-color);
 }
 
 .player {
@@ -216,9 +261,9 @@ ol {
 #pre-game button {
   cursor: pointer;
   background: none;
-  color: #f8c031;
+  color: var(--background-main);
   border: none;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
   animation: pulse-text-size 2s infinite ease-out;
@@ -264,7 +309,7 @@ ol {
   color: #3f3b00;
   font-size: 5rem;
   cursor: pointer;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   padding: 1rem;
 }
 
@@ -301,10 +346,10 @@ ol {
 }
 
 #game-over h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-align: center;
-  color: #fcd256;
+  color: var(--background-main);
   margin: 0;
 }
 
@@ -343,8 +388,8 @@ ol {
   margin: 0 auto;
   font-size: 1.5rem;
   background: none;
-  border: 2px solid #fcd256;
-  color: #fcd256;
+  border: 2px solid var(--background-main);
+  color: var(--background-main);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -353,10 +398,10 @@ ol {
 }
 
 #game-over button:hover {
-  background: #fcd256;
+  background: var(--background-main);
   color: #3f3b00;
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+  box-shadow: 0 0 20px rgba(19, 194, 241, 0.8);
 }
 
 #log {
@@ -385,7 +430,7 @@ ol {
 }
 
 #game-hints h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 2rem;
   margin: 0;
 }
@@ -442,15 +487,15 @@ ol {
 
 @keyframes pulse {
   0% {
-    border-color: #f6e35a;
+    border-color: var(--background-main);
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
   }
   50% {
-    border-color: #f8c031;
+    border-color: var(--background-main);
     box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
   }
   100% {
-    border-color: #f6e35a;
+    border-color: var(--background-main);
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
   }
 }
@@ -472,7 +517,7 @@ ol {
 
 /* Player Form Styles */
 #player-form {
-  background: linear-gradient(160deg, #2c1810 0%, #8a2a2a 100%);
+  background: linear-gradient(160deg, #10232c 0%, #2a8a85 100%);
   border-radius: 6px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   padding: 2rem;
@@ -490,8 +535,8 @@ ol {
 }
 
 #player-form h2 {
-  font-family: 'Caprasimo', cursive;
-  color: #f6e35a;
+  font-family: "Caprasimo", cursive;
+  color: var(--background-main);
   margin: 0 0 1.5rem 0;
   font-size: 1.8rem;
 }
@@ -528,7 +573,7 @@ ol {
 
 #player-form input:focus {
   outline: none;
-  border-color: #f6e35a;
+  border-color: var(--background-main);
   box-shadow: 0 0 0 2px rgba(246, 227, 90, 0.2);
 }
 
@@ -537,7 +582,7 @@ ol {
 }
 
 .start-game-btn {
-  background: linear-gradient(160deg, #f6e35a 0%, #f8c031 100%);
+  background: linear-gradient(160deg, #2596be  0%, #2596be 100%);
   border: none;
   border-radius: 4px;
   color: #3f3b00;
@@ -550,7 +595,7 @@ ol {
 }
 
 .start-game-btn:hover {
-  background: linear-gradient(160deg, #f8c031 0%, #f6e35a 100%);
+  background: linear-gradient(160deg, #2596be 0%, #2596be 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }

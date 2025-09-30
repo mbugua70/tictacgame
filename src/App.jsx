@@ -133,9 +133,9 @@ function App() {
     return (
       <>
         <main>
-          <div id="game-container">
+          {/* <div id='game-container'> */}
             <PlayerForm onStartGame={handleStartGame} />
-          </div>
+          {/* </div>x */}
         </main>
       </>
     );
@@ -143,18 +143,19 @@ function App() {
 
   return (
     <>
+      <h1 style={{ textAlign: "center" }}>Tic-Tac-Toe</h1>
       <main>
-        <div id="game-container">
-          <ol id="players" className="highlight-player">
+        <div id='game-container'>
+          <ol id='players' className='highlight-player'>
             <Player
               name={player.X}
-              symbol="X"
+              symbol='X'
               isActive={activePlayer === "X"}
               onChangeName={handlePlayerName}
             />
             <Player
               name={player.O}
-              symbol="O"
+              symbol='O'
               isActive={activePlayer === "O"}
               onChangeName={handlePlayerName}
             />
