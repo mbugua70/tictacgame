@@ -1,0 +1,23 @@
+public /assets
+
+public/ are made publicly available by the underlying project development server & build process. Just like index.html, those files can directly be visited from inside the browser and can therefore also be requested by other files.
+
+
+Which Folder Should You Use?
+You should use the public/ folder for any images that should not be handled by the build process and that should be generally available. Good candidates are images used directly in the index.html file or favicons.
+
+On the other hand, images that are used inside of components should typically be stored in the src/ folder (e.g., in src/assets/).
+
+// updating the object state immutably
+-object and arrays are reference values in javascript
+- you should not mutate them directly therefore create deep copy first
+
+i.e const updateUser = {...user}
+updateUser.name = "john"
+
+//PRIMITIVE AND REFERENCE
+// Primitive values - this are numbers, strings, null, boolean and undefined.
+//Reference values - this are objects and arrays
+
+stack memory - stores items whose sizes are known, stores primitive values
+heap memory - stores items whose size cant be told , stores reference values
